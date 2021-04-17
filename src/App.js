@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+// import footer from "./components/common/footer";
+import "./App.css";
+import Header from "./components/common/header";
+import FindTrain from "./components/findTrain";
+import Admin from "./components/admin";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./components/home";
+import React, { useState } from "react";
+import Booking from "./components/booking";
 
 function App() {
+  const [user, setUser] = useState({});
+
+  const userState = (value) => {
+    setUser(value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header user={user} userState={userState} />
+      <Router>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/find-train" component={FindTrain} />
+        <Route
+          path="/admin"
+          render={() => {
+            return <Admin user={user} />;
+          }}
+        />
+        <Route
+          exact
+          path="/booking"
+          render={() => {
+            return <Booking user={user} />;
+          }}
+        />
+      </Router>
+    </>
   );
 }
 
