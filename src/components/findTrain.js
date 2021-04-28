@@ -13,7 +13,7 @@ function Home() {
           backgroundRepeat: `no-repeat`,
           width: `100%`,
           backgroundSize: `cover`,
-          height: `30rem`,
+          height: `40rem`,
         }}
         className="blur"
         fluid

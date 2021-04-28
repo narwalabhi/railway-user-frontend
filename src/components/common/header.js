@@ -1,5 +1,14 @@
 import React from "react";
-import { Navbar, Form, Button, Nav, Col, ButtonGroup } from "react-bootstrap";
+import {
+  Navbar,
+  Form,
+  Button,
+  Nav,
+  Col,
+  ButtonGroup,
+  DropdownButton,
+  Dropdown,
+} from "react-bootstrap";
 import LoginModal from "./login";
 import RegisterModal from "./register";
 
@@ -32,9 +41,15 @@ function Header({ user, userState }) {
   const loggedIn = (
     <Form inline>
       <Col>
-        <ButtonGroup>
-          <Button variant="secondary">Hi, {user && user.name}</Button>
-        </ButtonGroup>
+        <DropdownButton
+          variant="secondary"
+          id="dropdown-basic-button"
+          title="Hi, Harsh Pradhan"
+        >
+          <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Account</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Trips</Dropdown.Item>
+        </DropdownButton>
       </Col>
       <Button
         variant="primary"
@@ -56,8 +71,8 @@ function Header({ user, userState }) {
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="booking">Book</Nav.Link>
           <Nav.Link href="find-train">Find Train</Nav.Link>
-          <Nav.Link href="about-us">About Us</Nav.Link>
-          <Nav.Link href="contact">Contact</Nav.Link>
+          {/* <Nav.Link href="about-us">About Us</Nav.Link>
+          <Nav.Link href="contact">Contact</Nav.Link> */}
         </Nav>
         {user && user.role && loggedIn}
         {user && !user.role && button}

@@ -28,6 +28,7 @@ function FindTrain() {
                 <FormControl
                   aria-label="Small"
                   aria-describedby="inputGroup-sizing-sm"
+                  placeholder="Source Station"
                 />
               </InputGroup>
             </Col>
@@ -41,6 +42,7 @@ function FindTrain() {
                 <FormControl
                   aria-label="Small"
                   aria-describedby="inputGroup-sizing-sm"
+                  placeholder="Destination Station"
                 />
               </InputGroup>
             </Col>
@@ -56,6 +58,7 @@ function FindTrain() {
                 <FormControl
                   aria-label="Small"
                   aria-describedby="inputGroup-sizing-sm"
+                  placeholder="Train Number"
                 />
               </InputGroup>
             </Col>

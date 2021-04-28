@@ -1,12 +1,18 @@
 // import footer from "./components/common/footer";
 import "./App.css";
 import Header from "./components/common/header";
+import Footer from "./components/common/footer";
 import FindTrain from "./components/findTrain";
 import Admin from "./components/admin";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/home";
 import React, { useState } from "react";
 import Booking from "./components/booking";
+import Carousel from "./components/common/carousal"
+import { SearchResult } from "./components/SearchResult";
+import { SearchItem } from "./components/SearchItem";
+import  BookingStepper  from "./components/BookingStepper";
+
 
 function App() {
   const [user, setUser] = useState({});
@@ -29,12 +35,27 @@ function App() {
         />
         <Route
           exact
-          path="/booking"
+          path="/book"
           render={() => {
-            return <Booking user={user} />;
+            return <BookingStepper user={user} />;
+          }}
+        />
+        <Route
+          exact
+          path="/search-result"
+          render={() => {
+            return <SearchResult user={user} />;
+          }}
+        />
+        <Route
+          exact
+          path="/search-item"
+          render={() => {
+            return <SearchItem user={user} />;
           }}
         />
       </Router>
+      <Footer />
     </>
   );
 }
