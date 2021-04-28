@@ -25,10 +25,7 @@ function SearchTrain() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem("values",JSON.stringify(values));
-    // search();
-    // props.history.push('/search-result');
-    <Redirect to='/search-result'/>
+    console.log(JSON.stringify(values))
   };
 
   const handleDateChange = (date) => {
@@ -36,6 +33,7 @@ function SearchTrain() {
     setValues((prev) => {
       return { ...prev, date: date.target.value };
     });
+    localStorage.setItem("values",JSON.stringify(values));
   };
 
   const handleClassCahange = (event) => {
@@ -43,19 +41,20 @@ function SearchTrain() {
     setValues((prev) => {
       return { ...prev, class: event.target.value };
     });
+    localStorage.setItem("values",JSON.stringify(values));
   };
 
   return (
     <>
       <Container>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}> 
           <Row>
             <Col>
               <Modal.Dialog>
                 <Modal.Header>
                   <Modal.Title>Search Train</Modal.Title>
                   <Link to={'/search-result'}>
-                  <Button variant="secondary" type="submit">
+                  <Button  variant="secondary" type="submit">
                     Search
                   </Button>
                   </Link>
@@ -77,6 +76,7 @@ function SearchTrain() {
                             setValues((prev) => {
                               console.log(event.target.value);
                               return { ...prev, from: event.target.value };
+                              localStorage.setItem("values",JSON.stringify(values));
                             });
                           }}
                         />

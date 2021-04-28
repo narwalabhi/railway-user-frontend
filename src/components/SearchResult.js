@@ -23,7 +23,7 @@ export class SearchResult extends React.Component {
           "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json",
           authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmFyd2FsQGdtYWlsLmNvbSIsImV4cCI6MTYxOTY2MTg1NywiaWF0IjoxNjE5NTc1NDU3LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl19.O7qOKen-ug9hiagTnd1ULPCbhAjzFLoYt-KQ_tdn9P0",
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmFyd2FsQGdtYWlsLmNvbSIsImV4cCI6MTYxOTczNjY0OCwiaWF0IjoxNjE5NjUwMjQ4LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl19.6wdYVMxoXAImRVbWhX5K3DAJCrXm2szSWWAdQkMlIk0"
         },
       }
     );
@@ -40,13 +40,12 @@ export class SearchResult extends React.Component {
   render() {
     return (
       <div style={{ width: "90%", margin: "auto" }}>
-        {this.loading ? (
+        {/* {this.loading ? (
           <Skeleton animation="wave" />
-        ) : (
-          this.state.tripSchedules.map((item) => {
+        ) : ( */}
+          {this.state.tripSchedules.map((item) => {
             return <SearchItem tripSchedule={item} />;
-          })
-        )}
+          })}
       </div>
     );
   }

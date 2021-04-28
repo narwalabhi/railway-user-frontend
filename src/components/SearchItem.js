@@ -116,9 +116,9 @@ export class SearchItem extends React.Component {
             "Content-Type": "application/json",
             authorization:
               
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmFyd2FsQGdtYWlsLmNvbSIsImV4cCI6MTYxOTY2MTg1NywiaWF0IjoxNjE5NTc1NDU3LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl19.O7qOKen-ug9hiagTnd1ULPCbhAjzFLoYt-KQ_tdn9P0"},
-        }
-      );
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmFyd2FsQGdtYWlsLmNvbSIsImV4cCI6MTYxOTczNjY0OCwiaWF0IjoxNjE5NjUwMjQ4LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl19.6wdYVMxoXAImRVbWhX5K3DAJCrXm2szSWWAdQkMlIk0"
+          }
+        });
       const fromStationData = await axios.get(
         "http://localhost:8084/train/stations/get/" +
           trainData.data.fromStationCode,
@@ -129,9 +129,8 @@ export class SearchItem extends React.Component {
             "Content-Type": "application/json",
             authorization:
               
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmFyd2FsQGdtYWlsLmNvbSIsImV4cCI6MTYxOTY2MTg1NywiaWF0IjoxNjE5NTc1NDU3LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl19.O7qOKen-ug9hiagTnd1ULPCbhAjzFLoYt-KQ_tdn9P0"},
-        }
-      );
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmFyd2FsQGdtYWlsLmNvbSIsImV4cCI6MTYxOTczNjY0OCwiaWF0IjoxNjE5NjUwMjQ4LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl19.6wdYVMxoXAImRVbWhX5K3DAJCrXm2szSWWAdQkMlIk0"
+         } } );
       const toStationData = await axios.get(
         "http://localhost:8084/train/stations/get/" +
           trainData.data.toStationCode,
@@ -141,9 +140,11 @@ export class SearchItem extends React.Component {
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
             authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmFyd2FsQGdtYWlsLmNvbSIsImV4cCI6MTYxOTY2MTg1NywiaWF0IjoxNjE5NTc1NDU3LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl19.O7qOKen-ug9hiagTnd1ULPCbhAjzFLoYt-KQ_tdn9P0"},
-        }
-      );
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmFyd2FsQGdtYWlsLmNvbSIsImV4cCI6MTYxOTczNjY0OCwiaWF0IjoxNjE5NjUwMjQ4LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl19.6wdYVMxoXAImRVbWhX5K3DAJCrXm2szSWWAdQkMlIk0"
+        }} );
+      // const trainData = JSON.parse(localStorage.getItem("train"));
+      // const fromStationData = JSON.parse(localStorage.getItem("fromStation"));
+      // const toStationData = JSON.parse(localStorage.getItem("toStation"));
       this.setState({
         train: trainData.data,
         fromStation: fromStationData.data,
@@ -167,6 +168,7 @@ export class SearchItem extends React.Component {
 
   bookNow = (classType) => {
     console.log(classType);
+    localStorage.setItem("selectedClass",classType);
     localStorage.setItem("tripSchedule", JSON.stringify(this.tripSchedule));
     localStorage.setItem("train", JSON.stringify(this.state.train));
     localStorage.setItem("fromStation", JSON.stringify(this.state.fromStation));

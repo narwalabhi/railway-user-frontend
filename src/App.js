@@ -7,8 +7,6 @@ import Admin from "./components/admin";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/home";
 import React, { useState } from "react";
-import Booking from "./components/booking";
-import Carousel from "./components/common/carousal"
 import { SearchResult } from "./components/SearchResult";
 import { SearchItem } from "./components/SearchItem";
 import  BookingStepper  from "./components/BookingStepper";
