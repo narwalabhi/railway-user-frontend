@@ -166,6 +166,20 @@ export class SearchItem extends React.Component {
     return time + " | " + name + " | " + date;
   }
 
+  //  getClassName = (className) => {
+  //   switch (className) {
+  //     case "FAC":
+  //       return "1AC";
+  //     case "SAC":
+  //       return "2AC";
+  //     case "TAC":
+  //       return "3AC";
+  //     default:
+  //       return className;
+  //   }
+  // };
+
+
   bookNow = (classType) => {
     console.log(classType);
     localStorage.setItem("selectedClass",classType);
@@ -210,10 +224,10 @@ export class SearchItem extends React.Component {
                 <SeatsCard value={"FAC"} title={"1AC"} seatsCount={this.tripSchedule.firstAcAvailableSeats} handleClick={this.bookNow}/>
               </Grid>
               <Grid item xs = {2}>
-                <SeatsCard value={"2AC"} title={"2AC"} seatsCount={this.tripSchedule.secondAcAvailableSeats} handleClick={this.bookNow}/>
+                <SeatsCard value={"FAC"} title={"2AC"} seatsCount={this.tripSchedule.secondAcAvailableSeats} handleClick={this.bookNow}/>
               </Grid>
               <Grid item xs = {2}>
-                <SeatsCard value={"3AC"} title={"3AC"} seatsCount={this.tripSchedule.thirdAcAvailableSeats} handleClick={this.bookNow}/>
+                <SeatsCard value={"TAC"} title={"3AC"} seatsCount={this.tripSchedule.thirdAcAvailableSeats} handleClick={this.bookNow}/>
               </Grid>
               <Grid item xs = {2}>
                 <SeatsCard value={"FC"} title={"FC"} seatsCount={this.tripSchedule.firstClassAcAvailableSeats} handleClick={this.bookNow}/>
